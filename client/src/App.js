@@ -7,7 +7,7 @@ import Registration from './components/Registration'
 function App(props) {
     return (
         <>
-            <h1>Dad Jokes</h1>
+            <h1>Dad Joke's</h1>
             <ul>
                 <li>
                     <NavLink to="/registration">Registration</NavLink>
