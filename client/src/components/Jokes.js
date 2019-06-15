@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function Jokes() {
+export default function Jokes(props) {
     const [ jokes, setJokes ] = useState([])
 
     useEffect( () => {
@@ -22,9 +22,18 @@ export default function Jokes() {
         }
     }
 
+    function logout() {
+        if (localStorage.getItem('token')) {
+            localStorage.removeItem('token')
+            props.history.push('/login')
+        }
+    }
+
+
     return (
        <>
         <h3>Joke's</h3>
+        {localStorage.getItem('token') && <button onClick={logout}>Log Out</button>}
         <ul>
             {jokes.map( joke => (<li key={joke.id}>
                 <p>{joke.joke}</p>

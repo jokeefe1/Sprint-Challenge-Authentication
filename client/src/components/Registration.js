@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-export default function Registration() {
+export default function Registration(props) {
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
@@ -20,6 +20,7 @@ export default function Registration() {
 
         try {
             await axios.post('http://localhost:5000/api/register', credentials)
+            props.history.push('/login')
         } catch (error) {
             console.error(error)
         }

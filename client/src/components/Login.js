@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-export default function Login() {
+export default function Login(props) {
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
@@ -20,8 +20,9 @@ export default function Login() {
 
         try {
             const response = await axios.post('http://localhost:5000/api/login', credentials)
-            const token = response.data.Authorization
+            const token = await response.data.Authorization
             localStorage.setItem('token', token)
+            props.history.push('/jokes')
         } catch (error) {
             console.error(error)
         }
