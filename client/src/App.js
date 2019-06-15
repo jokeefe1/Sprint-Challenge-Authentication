@@ -4,7 +4,7 @@ import Jokes from './components/Jokes'
 import Login from './components/Login'
 import Registration from './components/Registration'
 
-function App() {
+function App(props) {
     return (
         <>
             <h1>Dad Jokes</h1>
@@ -19,6 +19,7 @@ function App() {
                     <NavLink to="/jokes">Jokes</NavLink>
                 </li>
             </ul>
+
             <section>
                 <Switch>
                     <Route component={Registration} path="/registration" />
